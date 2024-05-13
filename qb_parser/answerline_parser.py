@@ -1,5 +1,5 @@
 import re
-from enum import auto, Enum
+from enum import  Enum
 from dataclasses import dataclass, field
 from typing import Dict, List, Tuple
 
@@ -57,9 +57,6 @@ class AnswerAction:
     def __repr__(self):
         return f"{type(self.directive)} {self.answers}"
 
-    # before: Directive
-
-from dataclasses import dataclass, field
 
 @dataclass
 class Answer:
@@ -188,11 +185,11 @@ class AnswerLineParser:
 
 
 # Example usage:
-# parser = AnswerLineParser()
+parser = AnswerLineParser()
 # parsed_data = parser.parse_answerline("Corpus Juris Civilis [accept Body of Civil Law; accept the Code of Justinian or Justinian’s Code]")
 # parsed_data = parser.parse_answerline("realignments [reject \"dealignments\"]")
 # parsed_data = parser.parse_answerline("{21} cm line [prompt on the hydrogen line before mention]")
 # parsed_data = parser.parse_answerline("Frédéric (François) {Chopin} [or Fryderyk (Franciszek) {Szopen}]")
-# parsed_data = parser.parse_answerline("Adventure [accept {Microsoft Adventure} or {Colossal Cave Adventure}; accept {graphic adventure}s; prompt on {graphic} with “what other word is in the name of that genre?”]")
+parsed_data = parser.parse_answerline("Adventure [accept {Microsoft Adventure} or {Colossal Cave Adventure}; accept {graphic adventure}s; prompt on {graphic} with “what other word is in the name of that genre?”]")
 # parsed_data = parser.parse_answerline("defenestration [prompt on “falling”; accept reasonable equivalents like “jumping out of a window” or “being thrown out of a window”; prompt on “suicide”]")
-# print(parsed_data)
+print(parsed_data)

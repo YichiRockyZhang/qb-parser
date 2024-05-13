@@ -3,7 +3,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-def qanta_tokenize(text, debug=False):
+def clue_tokenize(text, debug=False):
     quotes_regex = r'(?:(\"[^"]*\")\s+[A-Z])|(?:(\"[^"]*\")\.)|(\"[^"]*\")' # matches double quotes
     """
     (?:(\"[^"]*\")\s+[A-Z])
@@ -68,12 +68,14 @@ def qanta_tokenize(text, debug=False):
                 logger.debug(temp_tok)
                 logger.debug(trouble_strs)
                 logger.debug(is_ending_quote)
+                pass
 
             if num_tok >= len(is_ending_quote):
                 logger.debug("out of bounds")
                 logger.debug(text)
                 logger.debug(num_tok)
                 logger.debug(is_ending_quote)
+                pass
 
             if is_ending_quote[num_tok]:
                 sent = sent.replace(f"[TEMP_TOK_{num_tok}].", trouble_strs[num_tok])
